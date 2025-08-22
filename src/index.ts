@@ -18,3 +18,5 @@ seedAdmin().then(() => {
     console.log(`API rodando em http://localhost:${PORT}`);
   });
 });
+
+export default app;

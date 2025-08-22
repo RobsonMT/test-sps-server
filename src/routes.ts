@@ -41,7 +41,7 @@ routes.post("/auth/login", async (req, res) => {
   if (!ok) return res.status(401).json({ message: "Credenciais inválidas" });
 
   const token = signToken({ sub: user.id, email: user.email, type: user.type });
-  return res.json({ token });
+  return res.json({ token, user });
 });
 
 /**

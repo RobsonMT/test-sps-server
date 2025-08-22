@@ -22,3 +22,8 @@ export const seedAdmin = async () => {
     updatedAt: now,
   });
 };
+
+export async function resetDb({ seed = true }: { seed?: boolean } = {}) {
+  users.splice(0, users.length);
+  if (seed) await seedAdmin();
+}

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { isEmail, sanitizeUser } from "./utils";
-import { CreateUserInput } from "./types";
+import { CreateUserInput, User } from "./types";
 import { AuthRequest, requireAuth } from "./middlewares/requireAuth";
 import { requireAdmin } from "./middlewares/requireAdmin";
 import * as bcrypt from "bcryptjs";
@@ -41,7 +41,7 @@ routes.post("/auth/login", async (req, res) => {
   if (!ok) return res.status(401).json({ message: "Credenciais inválidas" });
 
   const token = signToken({ sub: user.id, email: user.email, type: user.type });
-  return res.json({ token, user });
+  return res.json({ token, user: sanitizeUser(user) });
 });
 
 /**

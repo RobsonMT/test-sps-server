@@ -1,1 +1,17 @@
+# Node modules
 /node_modules
+
+# Arquivos de build
+/dist
+/build
+
+# Variáveis de ambiente
+.env
+
+# Logs e arquivos de depuração
+npm-debug.log*
+.log*
+
+# Arquivos temporários e de editor
+.vscode
+.idea
